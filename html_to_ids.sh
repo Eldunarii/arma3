@@ -11,7 +11,7 @@ grep -o "id=[0-9]*" "$html_file" | cut -d= -f2 | sort -u > "$output_file"
 
 echo "Mod IDs saved to $output_file"
 
-
+id_file=$(basename -s .html "$html_file")_IDs.txt
 name_file=$(basename -s .html "$html_file")_Names.txt
 
 # Use grep to extract the mod IDs and names from the URLs, remove duplicates and sort
