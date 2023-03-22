@@ -3,7 +3,10 @@
 # Define the HTML file path
 html_file="modsHTML/Test_Serveur_Braquage.html"
 
-# Use grep to extract the mod IDs from the URLs
-grep -o "id=[0-9]*" "$html_file" | cut -d= -f2 > mod_ids.txt
+# Define the output file path
+output_file=$(basename -s .html "$html_file")Preset.txt
 
-echo "Mod IDs saved to mod_ids.txt"
+# Use grep to extract the mod IDs from the URLs, remove duplicates and sort
+grep -o "id=[0-9]*" "$html_file" | cut -d= -f2 | sort -u > "$output_file"
+
+echo "Mod IDs saved to $output_file"
