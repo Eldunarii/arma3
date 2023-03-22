@@ -20,6 +20,6 @@ output_file="mod_names.txt"
 while read id; do
     name=$(../steamcmd.sh +login pouletopipo cAssjZ23~~aa +workshop_download_item 107410 "$id" validate +quit | grep "Name:" | cut -d: -f2 | tr -d '[:space:]')
     echo "$name" >> "$output_file"
-done < "$input_file"
+done
 
 echo "Mod names saved to $output_file"
