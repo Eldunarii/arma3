@@ -11,7 +11,7 @@ grep -o "id=[0-9]*" "$html_file" | cut -d= -f2 | sort -u > "$output_file"
 
 echo "Mod IDs saved to $output_file"
 
-input_file=output_file
+input_file=$(basename -s .html "$html_file")_Preset.txt
 
 # Define the output file path for the names
 output_file="mod_names.txt"
